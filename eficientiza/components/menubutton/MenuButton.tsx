@@ -36,7 +36,7 @@ function MenuButton() {
           className="text-2xl w-full bg-white flex flex-col gap-12 py-8 px-11 lg:hidden xl:hidden 2xl:hidden"
         >
           <ActiveLink linkTitle="Inicio" linkUrl="/" />
-          <ActiveLink linkTitle="Meus Pontos" linkUrl="/Pontos" />
+          <ActiveLink linkTitle="Contato" linkUrl="/autores" />
           <ActiveLink linkTitle="Chatbot" linkUrl="/ChatBot" />
           <ActiveLink linkTitle="Perfil" linkUrl="/Perfil" />
           <ActiveLink linkTitle="FAQ" linkUrl="/Faq" />

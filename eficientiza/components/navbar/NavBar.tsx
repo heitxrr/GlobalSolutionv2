@@ -22,10 +22,9 @@ function NavBar() {
 
                 <ul className=' items-center hidden divide-black divide-x-2  sm:hidden md:hidden lg:flex xl:flex 2xl:flex'>
                     <ActiveLink linkTitle={'Inicio'} linkUrl='/' />
-                    <ActiveLink linkTitle={'Meus Pontos'} linkUrl='/pontos' />
-                    <ActiveLink linkTitle={'Chatbot'} linkUrl='/chatbot' />
-                    <ActiveLink linkTitle={'Perfil'} linkUrl='/perfil' />
-                    <ActiveLink linkTitle={'FAQ'} linkUrl='/faqs' />
+                    <ActiveLink linkTitle={'Eventos'} linkUrl='/eventos' />
+                    <ActiveLink linkTitle={'Dicas'} linkUrl='/faq' />
+                    <ActiveLink linkTitle={'Contato'} linkUrl='/autores' />
                 </ul>
             </div>
 

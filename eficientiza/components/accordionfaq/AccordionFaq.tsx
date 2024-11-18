@@ -11,9 +11,10 @@ function AccordionFaq({ faq }: AccordionFaqProps) {
   return (
     <Accordion
       sx={{
-        backgroundColor: '#43793c',
+        backgroundColor: 'rgba(94, 173, 84, 0.3)',
         borderRadius: '10px',
-        boxShadow: 'none',
+        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+        marginBottom: '20px',
         '&:before': {
           display: 'none',
         },
