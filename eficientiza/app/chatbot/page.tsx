@@ -60,7 +60,7 @@ function Chat() {
 
   return (
     <main>
-      <ul className='w-full h-[calc(100vh-10rem)] bg-blue-700 overflow-scroll overflow-x-hidden p-10 flex flex-col gap-10'>
+      <ul className='w-full h-[calc(100vh-10rem)] bg-[#43793c] overflow-scroll overflow-x-hidden p-10 flex flex-col gap-10'>
         {chatMessages.map((message, index) => (
           <ChatMessage key={index} message={message.mensagem} destinatario={message.destinatario} />
         ))}

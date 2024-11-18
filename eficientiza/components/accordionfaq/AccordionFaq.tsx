@@ -11,7 +11,7 @@ function AccordionFaq({ faq }: AccordionFaqProps) {
   return (
     <Accordion
       sx={{
-        backgroundColor: '#7CA6E5',
+        backgroundColor: '#43793c',
         borderRadius: '10px',
         boxShadow: 'none',
         '&:before': {

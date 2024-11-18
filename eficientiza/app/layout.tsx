@@ -16,8 +16,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Porto Quest",
-  description: "Porto Quest",
+  title: "Eficientiza",
+  description: "Eficientiza",
 };
 
 export default function RootLayout({
