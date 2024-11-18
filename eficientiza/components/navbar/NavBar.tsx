@@ -11,25 +11,26 @@ function NavBar() {
     const { usuario } = useUsuario();
 
     return (
-        <header className='bg-eficientiza w-full flex h-20 justify-between px-8 items-center sticky top-0 text-black z-10'>
-            <div className='flex gap-8'>
-                <MenuButton />
+        <header className='bg-eficientiza w-full flex h-20 px-8 items-center sticky top-0 text-black z-10'>
+            <div className='flex-shrink-0'>
                 <Link href="/">
-                    <figure className='w-20 h-auto '>
+                    <figure className='w-20 h-auto'>
                         <img src='/images/logo-eficientiza.png' alt="Logo Eficientiza" />
                     </figure>
                 </Link>
-
-                <ul className=' items-center hidden divide-black divide-x-2  sm:hidden md:hidden lg:flex xl:flex 2xl:flex'>
+            </div>
+    
+            <div className='flex-1 flex justify-center items-center'>
+                <ul className='flex items-center gap-0 divide-black divide-x-2 sm:hidden md:hidden lg:flex xl:flex 2xl:flex'>
                     <ActiveLink linkTitle={'Inicio'} linkUrl='/' />
                     <ActiveLink linkTitle={'Eventos'} linkUrl='/eventos' />
                     <ActiveLink linkTitle={'Dicas'} linkUrl='/faq' />
-                    <ActiveLink linkTitle={'Contato'} linkUrl='/autores' />
+                    <ActiveLink linkTitle={'Contato'} linkUrl='/' />
+                    <ActiveLink linkTitle={'Autores'} linkUrl='/autores' />
                 </ul>
             </div>
-
-
         </header>
+        
     );
 }
 

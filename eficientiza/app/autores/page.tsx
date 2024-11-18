@@ -9,7 +9,7 @@ export default function Autores() {
   const autores: AutorCardProps[] = [
     {
       img: imgAutor1,
-      nome: "Alexsandro Macedo de Jesus",
+      nome: "Alexsandro Macedo De Jesus",
       rm: "557068",
       usuarioGithub: "",
     },
@@ -17,7 +17,7 @@ export default function Autores() {
       img: imgAutor2,
       nome: "Leonardo Faria Salazar",
       rm: "557484",
-      usuarioGithub: "L-Salazar",
+      usuarioGithub: "L-salazar",
     },
     {
       img: imgAutor3,
@@ -30,15 +30,7 @@ export default function Autores() {
     <>
       <main className="bg-white">
         <section className="flex flex-col items-stretch justify-around gap-8 p-24 max-w-screen-xl mx-auto ">
-          {autores.map((autor) => (
-            <AutorCard
-              key={autor.rm}
-              img={autor.img}
-              nome={autor.nome}
-              rm={autor.rm}
-              usuarioGithub={autor.usuarioGithub}
-            />
-          ))}
+          <AutorCard cards={autores} />
         </section>
       </main>
       <Rodape />
