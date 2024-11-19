@@ -3,10 +3,11 @@
 import React, { useState } from "react";
 
 interface MenuContatoProps {
-  onSubmit: (email: string, motivo: string) => void;
+  onSubmit: (nome: string, email: string, motivo: string) => void;
 }
 
 const MenuContato: React.FC<MenuContatoProps> = ({ onSubmit }) => {
+  const [nome, setNome] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [motivo, setMotivo] = useState<string>("");
   const [erro, setErro] = useState<string>("");
@@ -15,6 +16,11 @@ const MenuContato: React.FC<MenuContatoProps> = ({ onSubmit }) => {
     e.preventDefault();
 
     // Validação básica
+    if (!nome.trim()) {
+      setErro("Por favor, insira seu nome completo.");
+      return;
+    }
+
     if (!email || !email.includes("@")) {
       setErro("Por favor, insira um e-mail válido.");
       return;
@@ -26,21 +32,35 @@ const MenuContato: React.FC<MenuContatoProps> = ({ onSubmit }) => {
     }
 
     // Envia os dados para o callback
-    onSubmit(email, motivo);
+    onSubmit(nome, email, motivo);
 
     // Limpa os campos
+    setNome("");
     setEmail("");
     setMotivo("");
     setErro("");
   };
 
   return (
-    <div className="flex flex-col items-center justify-center bg-gray-100 p-6 rounded-lg shadow-md max-w-md mx-auto">
-      <h1 className="text-xl font-bold mb-4 text-gray-800">Entre em Contato</h1>
+    <div className="flex flex-col items-center justify-center bg-[#8AE27F] p-6 rounded-lg shadow-md max-w-md mx-auto">
+      <h1 className="text-xl font-bold mb-4 text-black">Entre em Contato</h1>
       <form onSubmit={handleSubmit} className="w-full">
         {erro && <p className="text-red-500 mb-2 text-sm">{erro}</p>}
         <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-700 font-medium mb-1">
+          <label htmlFor="nome" className="block text-black font-medium mb-1">
+            Nome Completo
+          </label>
+          <input
+            id="nome"
+            type="text"
+            placeholder="Digite seu nome completo"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="email" className="block text-black font-medium mb-1">
             E-mail
           </label>
           <input
@@ -53,7 +73,7 @@ const MenuContato: React.FC<MenuContatoProps> = ({ onSubmit }) => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="motivo" className="block text-gray-700 font-medium mb-1">
+          <label htmlFor="motivo" className="block text-black font-medium mb-1">
             Motivo do Contato
           </label>
           <textarea
@@ -66,7 +86,7 @@ const MenuContato: React.FC<MenuContatoProps> = ({ onSubmit }) => {
         </div>
         <button
           type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition w-full font-medium"
+          className="bg-[#55AE4A] text-black px-4 py-2 rounded-lg hover:bg-[#48933F] transition w-full font-medium"
         >
           Enviar
         </button>

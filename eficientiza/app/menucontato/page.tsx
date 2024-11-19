@@ -4,7 +4,8 @@ import React from "react";
 import MenuContato from "@/components/menucontato/MenuContato";
 
 const ContatoPage: React.FC = () => {
-  const handleContatoSubmit = (email: string, motivo: string) => {
+  const handleContatoSubmit = (nome: string, email: string, motivo: string) => {
+    console.log("Nome:", nome);
     console.log("E-mail:", email);
     console.log("Motivo:", motivo);
     alert("Contato enviado com sucesso!");
