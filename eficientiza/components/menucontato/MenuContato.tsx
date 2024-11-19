@@ -85,7 +85,7 @@ const MenuContato: React.FC<MenuContatoProps> = ({ onSubmit }) => {
         </div>
         <button
           type="submit"
-          className="bg-[#55AE4A] text-black px-4 py-2 rounded-lg hover:bg-[#48933F] transition w-full font-medium"
+          className="bg-[#185210] text-white px-4 py-2 rounded-lg hover:bg-[#173413] transition w-full font-medium"
         >
           Enviar
         </button>
