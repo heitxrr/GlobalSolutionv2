@@ -42,7 +42,7 @@ const MenuContato: React.FC<MenuContatoProps> = ({ onSubmit }) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center bg-[#8AE27F] p-6 rounded-lg shadow-md max-w-md mx-auto">
+    <div className="flex flex-1 flex-col items-center justify-center bg-[#8AE27F] p-6 rounded-lg shadow-md max-w-md mx-auto">
       <h1 className="text-xl font-bold mb-4 text-black">Entre em Contato</h1>
       <form onSubmit={handleSubmit} className="w-full">
         {erro && <p className="text-red-500 mb-2 text-sm">{erro}</p>}
