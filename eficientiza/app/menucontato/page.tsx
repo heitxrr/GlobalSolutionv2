@@ -2,19 +2,22 @@
 
 import React from "react";
 import MenuContato from "@/components/menucontato/MenuContato";
+import Rodape from "@/components/rodape/Rodape";
 
 const ContatoPage: React.FC = () => {
-  const handleContatoSubmit = (nome: string, email: string, motivo: string) => {
-    console.log("Nome:", nome);
+  const handleContatoSubmit = (email: string, motivo: string) => {
     console.log("E-mail:", email);
     console.log("Motivo:", motivo);
     alert("Contato enviado com sucesso!");
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-200">
+    <main>
+    <section className="my-10 flex items-center justify-center">
       <MenuContato onSubmit={handleContatoSubmit} />
-    </div>
+    </section>
+    <Rodape/>
+    </main>
   );
 };
 
