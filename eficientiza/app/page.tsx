@@ -26,7 +26,8 @@ const Home = () => {
       <section className='flex flex-col items-center'>
         <h1 className='text-2xl font-bold p-8'>Confira nossos eventos:</h1>
         <Carousel oficinas={oficinas} />
-        <p className='p-8 px-28 text-center'>A, B, C, D</p>
+        <p className='p-8 px-28 text-center'>Eficientiza é um projeto dedicado a promover a sustentabilidade energética através de eventos e marketing. Nosso objetivo é conscientizar e educar a comunidade sobre práticas eficientes de uso de energia, contribuindo para um futuro mais sustentável.</p>
+        <p className='p-8 px-28 text-center'>Aqui você encontra informações sobre nossos eventos, dicas de economia de energia, contato com nossos especialistas e muito mais. Aproveite!</p>
       </section>
       <Rodape />
     </main>
