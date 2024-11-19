@@ -56,7 +56,7 @@ const MenuContato: React.FC<MenuContatoProps> = ({ onSubmit }) => {
             placeholder="Digite seu nome completo"
             value={nome}
             onChange={(e) => setNome(e.target.value)}
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:[#48933F]"
           />
         </div>
         <div className="mb-4">
@@ -69,7 +69,7 @@ const MenuContato: React.FC<MenuContatoProps> = ({ onSubmit }) => {
             placeholder="Digite seu e-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:[#48933F]"
           />
         </div>
         <div className="mb-4">
@@ -81,7 +81,7 @@ const MenuContato: React.FC<MenuContatoProps> = ({ onSubmit }) => {
             placeholder="Escreva o motivo do seu contato"
             value={motivo}
             onChange={(e) => setMotivo(e.target.value)}
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:[#48933F]"
           />
         </div>
         <button
