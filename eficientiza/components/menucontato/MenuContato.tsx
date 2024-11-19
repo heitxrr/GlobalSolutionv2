@@ -65,7 +65,6 @@ const MenuContato: React.FC<MenuContatoProps> = ({ onSubmit }) => {
           </label>
           <input
             id="email"
-            type="email"
             placeholder="Digite seu e-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
