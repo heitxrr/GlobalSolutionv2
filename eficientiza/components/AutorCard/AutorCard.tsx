@@ -3,11 +3,11 @@ import { AutorCardProps } from "@/types/AutorCard";
 
 export default function CardAutor({ cards }: { cards: AutorCardProps[] }) {
   return (
-    <div className="flex justify-center items-center gap-6 flex-wrap p-8 bg-gray-100">
+    <div className="flex justify-center items-center gap-6 flex-wrap p-8 ">
       {cards.map((card, index) => (
         <div
           key={index}
-          className="flex justify-start items-center gap-4 bg-white shadow-lg rounded-lg p-4"
+          className="flex justify-start items-center gap-4 bg bg-white rounded-lg p-4 shadow-md shadow-black"
         >
           {/* Imagem */}
           <Image

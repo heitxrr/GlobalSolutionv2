@@ -31,8 +31,8 @@ const Carousel = ({ oficinas = [] }: CarouselProps) => {
         }}
         pagination={{ clickable: true }}
         style={{
-          "--swiper-navigation-color": "#ffffff",
-          "--swiper-pagination-color": "#ffffff",
+          "--swiper-navigation-color": "#000000",
+          "--swiper-pagination-color": "#000000",
         } as React.CSSProperties} // Tipagem flexível
       >
         {Array.isArray(oficinas) 

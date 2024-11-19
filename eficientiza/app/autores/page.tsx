@@ -28,8 +28,8 @@ export default function Autores() {
   ];
   return (
     <>
-      <main className="bg-white">
-        <section className="flex flex-col items-stretch justify-around gap-8 p-24 max-w-screen-xl mx-auto ">
+      <main className="bg-primary">
+        <section className="flex flex-col items-stretch justify-around gap-8 p-24 max-w-screen-xl mx-auto bg-primary">
           <AutorCard cards={autores} />
         </section>
       </main>

@@ -2,7 +2,7 @@
 
 import React from "react";
 import MenuContato from "@/components/menucontato/MenuContato";
-import Rodape from "@/components/rodape/Rodape";
+import Rodape from "@/components/Rodape/Rodape";
 
 const ContatoPage: React.FC = () => {
   const handleContatoSubmit = (email: string, motivo: string) => {
