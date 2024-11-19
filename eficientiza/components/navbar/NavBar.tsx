@@ -25,7 +25,7 @@ function NavBar() {
                     <ActiveLink linkTitle={'Inicio'} linkUrl='/' />
                     <ActiveLink linkTitle={'Eventos'} linkUrl='/eventos' />
                     <ActiveLink linkTitle={'Dicas'} linkUrl='/faq' />
-                    <ActiveLink linkTitle={'Contato'} linkUrl='/' />
+                    <ActiveLink linkTitle={'Contato'} linkUrl='/menucontato' />
                     <ActiveLink linkTitle={'Autores'} linkUrl='/autores' />
                 </ul>
             </div>
