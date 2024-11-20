@@ -11,7 +11,7 @@ export default function Autores() {
       img: imgAutor1,
       nome: "Alexsandro Macedo De Jesus",
       rm: "557068",
-      usuarioGithub: "",
+      usuarioGithub: "AlexxsandroM",
     },
     {
       img: imgAutor2,
