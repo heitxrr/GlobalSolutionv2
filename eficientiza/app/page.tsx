@@ -23,25 +23,21 @@ const Home = () => {
       title: "Como a Energia Hidrelétrica Transforma o Futuro Sustentável",
       description: "Entenda os impactos da energia hidrelétrica e sua importância no cenário energético atual.",
       link: "/post/energia-hidreletrica",
-      img: imgAutor1,
     },
     {
       title: "A Revolução da Energia Solar no Brasil",
       description: "A energia solar tem ganhado destaque, e nós vamos te mostrar o porquê.",
       link: "/post/energia-solar",
-      img: imgAutor2,
     },
     {
       title: "Desafios e Benefícios da Energia Eólica",
       description: "Explore como a energia eólica está mudando o setor energético global.",
       link: "/post/energia-eolica",
-      img: imgAutor3,
     },
     {
       title: "Sustentabilidade e Inovações em Energias Renováveis",
       description: "Fique por dentro das novas inovações no campo das energias renováveis.",
       link: "/post/sustentabilidade-inovacoes",
-      img: imgAutor3,
     },
   ];
 
@@ -58,7 +54,6 @@ const Home = () => {
                 title={post.title}
                 description={post.description}
                 link={post.link}
-                img={post.img}
               />
             ))}
           </div>
