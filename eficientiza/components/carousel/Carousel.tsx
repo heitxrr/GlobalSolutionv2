@@ -1,56 +1,41 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { Navigation, Pagination, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import type { Swiper as SwiperCore } from 'swiper/types';
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Oficina } from '@/types/Oficina';
 
-
+import { StaticImageData } from 'next/image';
 
 interface CarouselProps {
-  oficinas: Oficina[] | null | undefined; 
+  images: { src: StaticImageData; alt: string }[];
 }
 
-const Carousel = ({ oficinas = [] }: CarouselProps) => {
-  const nextButtonRef = useRef<HTMLButtonElement | null>(null);
-  const prevButtonRef = useRef<HTMLButtonElement | null>(null);
-
+const Carousel = ({ images }: CarouselProps) => {
   return (
     <div className="relative w-full">
       <Swiper
-        className='w-full'
+        className="w-full"
         modules={[Navigation, Pagination, A11y]}
-        spaceBetween={50}
-        slidesPerView={1}
-        navigation={{
-          nextEl: nextButtonRef.current,
-          prevEl: prevButtonRef.current,
-        }}
-        pagination={{ clickable: true }}
-        style={{
-          "--swiper-navigation-color": "#000000",
-          "--swiper-pagination-color": "#000000",
-        } as React.CSSProperties} // Tipagem flexível
-      >
-        {Array.isArray(oficinas) 
-          ? oficinas
-              .map((oficina) => (
-                <SwiperSlide className='h-auto object-contain' key={oficina.idOficina}>
-                  <img className="w-full max-h-[800px] max-w-full object-cover" src={oficina.urlBanner} alt={oficina.nome} />
-                </SwiperSlide>
-              ))
-          : <p>Não há oficinas disponiveis</p> 
+        navigation={{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}      >
+        {images.length > 0
+          ? images.map((image, index) => (
+              <SwiperSlide className="h-auto object-contain" key={index}>
+                <img
+                  className="w-full h-56 object-cover"
+                  src={image.src.src}
+                  alt={image.alt}
+                />
+              </SwiperSlide>
+          ))
+          : <p>Não há imagens disponíveis</p>
         }
       </Swiper>
-      
-      {/* Navigation buttons */}
-      <button ref={prevButtonRef} className="swiper-button-prev absolute left-0 top-1/2 transform -translate-y-1/2 z-10"></button>
-      <button ref={nextButtonRef} className="swiper-button-next absolute right-0 top-1/2 transform -translate-y-1/2 z-10"></button>
+      {/* Botões de navegação */}
+      <div className="swiper-button-prev"></div>
+      <div className="swiper-button-next"></div>
     </div>
   );
-}
+};
 
 export default Carousel;
