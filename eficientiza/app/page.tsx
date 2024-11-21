@@ -1,31 +1,71 @@
 'use client';
 
 import React from 'react';
-import Carousel from '../components/carousel/Carousel';  // Caminho para o seu componente Carousel
-import Rodape from '../components/Rodape/Rodape';        // Caminho para o seu componente Rodape
+import Carousel from '../components/carousel/Carousel';  
+import Rodape from '../components/Rodape/Rodape';        
 
+//imagens usadas para teste, quando finalizar apagar a pasta teste do public junto com essas imports
 import imgAutor1 from "@/public/images/teste/energia-hidreletrica.jpg";
 import imgAutor2 from "@/public/images/teste/energia-solar.jpg";
 import imgAutor3 from "@/public/images/teste/energia-eolica.jpg";
-
-// Definição do tipo StaticImageData
 import { StaticImageData } from 'next/image';
+import Link from 'next/link';
 
 const Home = () => {
-  // Array de imagens com StaticImageData
   const images: { src: StaticImageData; alt: string }[] = [
-    { src: imgAutor1, alt: 'Imagem do autor Alexsandro' },
-    { src: imgAutor2, alt: 'Imagem do autor Leonardo' },
-    { src: imgAutor3, alt: 'Imagem do autor Heitor' },
+    { src: imgAutor1, alt: '' },
+    { src: imgAutor2, alt: '' },
+    { src: imgAutor3, alt: '' },
+  ];
+
+  const posts = [
+    {
+      title: "Como a Energia Hidrelétrica Transforma o Futuro Sustentável",
+      description: "Entenda os impactos da energia hidrelétrica e sua importância no cenário energético atual.",
+      link: "/post/energia-hidreletrica", // link para o post
+      img: imgAutor1,
+    },
+    {
+      title: "A Revolução da Energia Solar no Brasil",
+      description: "A energia solar tem ganhado destaque, e nós vamos te mostrar o porquê.",
+      link: "/post/energia-solar",
+      img: imgAutor2,
+    },
+    {
+      title: "Desafios e Benefícios da Energia Eólica",
+      description: "Explore como a energia eólica está mudando o setor energético global.",
+      link: "/post/energia-eolica",
+      img: imgAutor3,
+    },
+    {
+      title: "Sustentabilidade e Inovações em Energias Renováveis",
+      description: "Fique por dentro das novas inovações no campo das energias renováveis.",
+      link: "/post/sustentabilidade-inovacoes",
+      img: imgAutor3,
+    },
   ];
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-background">
       <main className="flex-grow">
         <section className="flex flex-col items-center">
-          {/* Passando as imagens para o Carousel */}
           <Carousel images={images} />
           <h1 className="text-2xl font-bold p-8">Postagens</h1>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 p-8 w-full">
+            {posts.map((post, index) => (
+              <Link key={index} href={post.link} className="block bg-white shadow-md shadow-black rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
+                <div
+                  className="h-48 w-full bg-cover bg-center"
+                  style={{ backgroundImage: `url(${post.img.src})` }}
+                />
+                <div className="p-4">
+                  <h2 className="text-lg font-semibold text-gray-800">{post.title}</h2>
+                  <p className="text-gray-600 text-sm mt-2">{post.description}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+
           <p className="p-8 px-28 text-center">
             Eficientiza é um projeto dedicado a promover a sustentabilidade energética através de eventos e marketing.
             Nosso objetivo é conscientizar e educar a comunidade sobre práticas eficientes de uso de energia, contribuindo para um futuro mais sustentável.
