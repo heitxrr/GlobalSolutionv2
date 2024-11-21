@@ -1,54 +1,77 @@
 'use client'
 
-import { useState } from 'react';
-import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css';
+import { Navigation } from 'swiper/modules';
+import Link from 'next/link';
+import Rodape from '@/components/Rodape/Rodape'; 
 
 function DualCarousel() {
-  const images = [
-    '/images/logo-eficientiza-navbar.png',
-    '/images/logo-eficientiza-navbar.png',
-    '/images/logo-eficientiza-navbar.png',
-    '/images/logo-eficientiza-navbar.png',
+  const cards = [
+    { title: 'Distribuição de sementes', link: '/page1', image: '/images/teste/energia-hidreletrica.jpg' },
+    { title: 'Distribuição de sementes', link: '/page2', image: '/images/teste/energia-solar.jpg' },
+    { title: 'Distribuição de sementes', link: '/page3', image: '/images/logo-eficientiza-navbar.png' },
+    { title: 'Distribuição de sementes', link: '/page4', image: '/images/teste/energia-eolica.jpg' },
   ];
 
-  const [currentIndex1, setCurrentIndex1] = useState(0);
-  const [currentIndex2, setCurrentIndex2] = useState(0);
-
-  const nextImage1 = () => {
-    setCurrentIndex1((prevIndex) => (prevIndex + 1) % images.length);
-  };
-
-  const prevImage1 = () => {
-    setCurrentIndex1((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-  };
-
-  const nextImage2 = () => {
-    setCurrentIndex2((prevIndex) => (prevIndex + 1) % images.length);
-  };
-
-  const prevImage2 = () => {
-    setCurrentIndex2((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-  };
-
   return (
-    <main className="flex flex-col items-center">
-      <div className="carousel w-full flex justify-center items-center my-10">
-        <button onClick={prevImage1} className="p-2">Anterior</button>
-        <div className="flex">
-          <Image src={images[currentIndex1]} alt="Event Image 1" width={300} height={300} />
-          <Image src={images[(currentIndex1 + 1) % images.length]} alt="Event Image 2" width={300} height={300} />
-        </div>
-        <button onClick={nextImage1} className="p-2">Próximo</button>
+    <>
+      <h1 className="text-2xl font-bold mb-6 text-center">Confira eventos em sua região</h1>
+      <div className="w-full mb-6 ">
+        <h2 className="text-xl font-semibold mb-4 text-center">Próxima semana</h2>
+        <Swiper spaceBetween={30} slidesPerView={1} breakpoints={{
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }} navigation={true} modules={[Navigation]} className="w-full">
+          {cards.map((card, index) => (
+            <SwiperSlide key={index}>
+              <Link href={card.link}>
+                <div className="relative flex flex-col items-center justify-center bg-background rounded-lg overflow-hidden">
+                  <div
+                    className="w-full h-40 bg-cover bg-center"
+                    style={{ backgroundImage: `url(${card.image})` }}
+                  />
+                  <div className="absolute inset-0 bg-green-500 opacity-40"></div>
+                  <div className="absolute top-1/2 transform -translate-y-1/2 z-10 text-center text-white font-semibold text-lg">
+                    {card.title}
+                  </div>
+                  <div className="absolute inset-y-0 right-0 w-4 bg-green-500"></div>
+                </div>
+              </Link>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
-      <div className="carousel w-full flex justify-center items-center my-10">
-        <button onClick={prevImage2} className="p-2">Anterior</button>
-        <div className="flex">
-          <Image src={images[currentIndex2]} alt="Event Image 3" width={300} height={300} />
-          <Image src={images[(currentIndex2 + 1) % images.length]} alt="Event Image 4" width={300} height={300} />
-        </div>
-        <button onClick={nextImage2} className="p-2">Próximo</button>
+
+      <div className="w-full mb-6">
+        <h2 className="text-xl font-semibold mb-4 text-center">Próximo mês</h2>
+        <Swiper spaceBetween={30} slidesPerView={1} breakpoints={{
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }} navigation={true} modules={[Navigation]} className="w-full">
+          {cards.map((card, index) => (
+            <SwiperSlide key={index}>
+              <Link href={card.link}>
+                <div className="relative flex flex-col items-center justify-center bg-background rounded-lg overflow-hidden">
+                  <div
+                    className="w-full h-40 bg-cover bg-center"
+                    style={{ backgroundImage: `url(${card.image})` }}
+                  />
+                  <div className="absolute inset-0 bg-green-500 opacity-40"></div>
+                  <div className="absolute top-1/2 transform -translate-y-1/2 z-10 text-center text-white font-semibold text-lg">
+                    {card.title}
+                  </div>
+                  <div className="absolute inset-y-0 right-0 w-4 bg-green-500"></div>
+                </div>
+              </Link>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
-    </main>
+      <Rodape />
+    </>
   );
 }
 
