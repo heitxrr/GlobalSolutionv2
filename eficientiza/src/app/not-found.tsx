@@ -1,6 +1,6 @@
 'use client';
 
-import Rodape from "@/src/components/Rodape/Rodape";
+import Rodape from "@/components/Rodape/Rodape";
 import { useRouter } from "next/navigation";
 
 const NotFound = () => {

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { AutorCardProps } from "@/src/types/AutorCard";
+import { AutorCardProps } from "@/types/AutorCard";
 
 export default function CardAutor({ cards }: { cards: AutorCardProps[] }) {
   return (

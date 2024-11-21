@@ -4,7 +4,7 @@ import { Drawer } from '@mui/material'
 import { IoIosMenu } from 'react-icons/io'
 import { IoCloseOutline } from 'react-icons/io5'
 import { useState } from 'react';
-import ActiveLink from '../ActiveLink/ActiveLink';
+import ActiveLink from '@/components/ActiveLink/ActiveLink';
 
 function MenuButton() {
   const [mainMenuOpen, setMainMenuOpen] = useState<boolean>(false);

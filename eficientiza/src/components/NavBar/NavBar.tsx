@@ -1,7 +1,7 @@
 'use client'
 
-import ActiveLink from '../ActiveLink/ActiveLink';
-import MenuButton from '../MenuButton/MenuButton';
+import ActiveLink from '@/components/ActiveLink/ActiveLink';
+import MenuButton from '@/components/MenuButton/MenuButton';
 import Link from 'next/link';
 
 function NavBar() {

@@ -1,9 +1,9 @@
-import AutorCard from "@/src/components/AutorCard/AutorCard";
-import imgAutor1 from "@/src/img/autores/alexsandro.png";
-import imgAutor2 from "@/src/img/autores/leonardo.png";
-import imgAutor3 from "@/src/img/autores/heitor.png";
-import { AutorCardProps } from "@/src/types/AutorCard";
-import Rodape from "@/src/components/Rodape/Rodape";
+import AutorCard from "@/components/AutorCard/AutorCard";
+import imgAutor1 from "@/img/autores/alexsandro.png";
+import imgAutor2 from "@/img/autores/leonardo.png";
+import imgAutor3 from "@/img/autores/heitor.png";
+import { AutorCardProps } from "@/types/AutorCard";
+import Rodape from "@/components/Rodape/Rodape";
 
 export default function Autores() {
   const autores: AutorCardProps[] = [

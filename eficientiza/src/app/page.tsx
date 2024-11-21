@@ -1,14 +1,14 @@
 'use client';
 
 import React from 'react';
-import Carousel from '../components/Carousel/Carousel';  
-import Rodape from '../components/Rodape/Rodape';        
-import CardPost from '../components/CardPost/CardPost';
+import Carousel from '@/components/Carousel/Carousel';  
+import Rodape from '@/components/Rodape/Rodape';        
+import CardPost from '@/components/CardPost/CardPost';
 
 // Imagens de teste,quando terminar de importar apis, apagar
-import imgAutor1 from "@/public/images/teste/energia-hidreletrica.jpg";
-import imgAutor2 from "@/public/images/teste/energia-solar.jpg";
-import imgAutor3 from "@/public/images/teste/energia-eolica.jpg";
+import imgAutor1 from "../../public/images/teste/energia-hidreletrica.jpg";
+import imgAutor2 from "../../public/images/teste/energia-solar.jpg";
+import imgAutor3 from "../../public/images/teste/energia-eolica.jpg";
 import { StaticImageData } from 'next/image';
 
 const Home = () => {

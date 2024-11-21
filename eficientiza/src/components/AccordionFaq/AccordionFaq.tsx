@@ -1,5 +1,5 @@
 
-import Faq from "@/src/types/Faq";
+import Faq from "@/types/Faq";
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import { IoIosArrowDropdownCircle } from 'react-icons/io';
 
