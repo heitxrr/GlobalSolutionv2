@@ -1,15 +1,12 @@
 'use client'
 
-import useUsuario from '@/hooks/UseUsuario';
 import ActiveLink from '../activelink/ActiveLink';
 import MenuButton from '../menubutton/MenuButton';
 import Link from 'next/link';
 
 function NavBar() {
-    const { usuario } = useUsuario();
-
     return (
-        <header className='bg-eficientiza w-full flex h-20 px-10 items-center sticky top-0 text-black z-10'>
+        <header className='bg-eficientiza w-full flex h-20 px-4 md:px-10 items-center sticky top-0 text-black z-10'>
             <div className='flex-shrink-0'>
                 <Link href="/">
                     <figure className='w-24 h-auto'>
@@ -18,17 +15,19 @@ function NavBar() {
                 </Link>
             </div>
     
-            <div className='flex-1 flex justify-center items-center'>
-                <ul className='flex items-center gap-0 divide-black divide-x-2 sm:hidden md:hidden lg:flex xl:flex 2xl:flex'>
+            <div className='flex-1 flex justify-end md:justify-center items-center'>
+                <ul className='hidden md:flex items-center gap-4 divide-black divide-x-2'>
                     <ActiveLink linkTitle={'Inicio'} linkUrl='/' />
                     <ActiveLink linkTitle={'Eventos'} linkUrl='/eventos' />
                     <ActiveLink linkTitle={'Dicas'} linkUrl='/faq' />
-                    <ActiveLink linkTitle={'Contato'} linkUrl='/menucontato' />
+                    <ActiveLink linkTitle={'Contato'} linkUrl='/contato' />
                     <ActiveLink linkTitle={'Autores'} linkUrl='/autores' />
                 </ul>
+                <div className='md:hidden'>
+                    <MenuButton />
+                </div>
             </div>
         </header>
-        
     );
 }
 

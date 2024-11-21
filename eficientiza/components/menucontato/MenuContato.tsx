@@ -14,8 +14,6 @@ const MenuContato: React.FC<MenuContatoProps> = ({ onSubmit }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    // Validação básica
     if (!nome.trim()) {
       setErro("Por favor, insira seu nome completo.");
       return;
@@ -30,11 +28,8 @@ const MenuContato: React.FC<MenuContatoProps> = ({ onSubmit }) => {
       setErro("Por favor, insira um motivo para seu contato.");
       return;
     }
-
-    // Envia os dados para o callback
     onSubmit(nome, email, motivo);
-
-    // Limpa os campos
+    
     setNome("");
     setEmail("");
     setMotivo("");

@@ -3,8 +3,7 @@
 import { Drawer } from '@mui/material'
 import { IoIosMenu } from 'react-icons/io'
 import { IoCloseOutline } from 'react-icons/io5'
-import { useLocation } from 'react-router-dom'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ActiveLink from '../activelink/ActiveLink';
 
 function MenuButton() {
@@ -36,15 +35,10 @@ function MenuButton() {
           className="text-2xl w-full bg-white flex flex-col gap-12 py-8 px-11 lg:hidden xl:hidden 2xl:hidden"
         >
           <ActiveLink linkTitle="Inicio" linkUrl="/" />
-          <ActiveLink linkTitle="Contato" linkUrl="/autores" />
-          <ActiveLink linkTitle="Chatbot" linkUrl="/ChatBot" />
-          <ActiveLink linkTitle="Perfil" linkUrl="/Perfil" />
-          <ActiveLink linkTitle="FAQ" linkUrl="/Faq" />
-          <li> 
-            <button className='bg-blue-700 rounded-full w-3/4 h-12 text-nowrap text-white'>
-              Baixar Aplicativo
-            </button>
-          </li>
+          <ActiveLink linkTitle="Eventos" linkUrl="/eventos" />
+          <ActiveLink linkTitle="Dicas" linkUrl="/faq" />
+          <ActiveLink linkTitle="Contato" linkUrl="/contato" />
+          <ActiveLink linkTitle="Autores" linkUrl="/autores" />
         </ul>
       </Drawer>
     </>

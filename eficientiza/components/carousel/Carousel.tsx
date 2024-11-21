@@ -17,7 +17,14 @@ const Carousel = ({ images }: CarouselProps) => {
       <Swiper
         className="w-full"
         modules={[Navigation, Pagination, A11y]}
-        navigation={{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}      >
+        navigation={{
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        }}
+        pagination={{ clickable: true }}
+        spaceBetween={10}
+        slidesPerView={1}
+      >
         {images.length > 0
           ? images.map((image, index) => (
               <SwiperSlide className="h-auto object-contain" key={index}>
@@ -31,9 +38,8 @@ const Carousel = ({ images }: CarouselProps) => {
           : <p>Não há imagens disponíveis</p>
         }
       </Swiper>
-      {/* Botões de navegação */}
-      <div className="swiper-button-prev"></div>
-      <div className="swiper-button-next"></div>
+      <div className="swiper-button-prev absolute left-0 top-1/2 transform -translate-y-1/2 "></div>
+      <div className="swiper-button-next absolute right-0 top-1/2 transform -translate-y-1/2 "></div>
     </div>
   );
 };
