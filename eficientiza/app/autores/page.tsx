@@ -29,14 +29,15 @@ export default function Autores() {
       usuarioGithub: "heitxrr",
     },
   ];
+
   return (
-    <>
-      <main className="bg-primary">
-        <section className="flex flex-col items-stretch justify-around gap-8 p-24 max-w-screen-xl mx-auto bg-primary">
+    <div className="flex flex-col min-h-screen bg-background">
+      <main className="flex-grow ">
+        <section className="flex flex-col lg:flex-row items-stretch justify-around gap-8 p-8 sm:p-16 md:p-24 max-w-screen-xl mx-auto bg-primary">
           <AutorCard cards={autores} />
         </section>
       </main>
       <Rodape />
-    </>
+    </div>
   );
 }
