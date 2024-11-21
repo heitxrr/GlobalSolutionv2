@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import MenuContato from "@/components/menucontato/MenuContato";
+import MenuContato from "@/components/Contato/Contato";
 import Rodape from "@/components/Rodape/Rodape";
 
 const ContatoPage: React.FC = () => {

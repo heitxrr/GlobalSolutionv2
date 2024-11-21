@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Carousel from '../components/carousel/Carousel';  
+import Carousel from '../components/Carousel/Carousel';  
 import Rodape from '../components/Rodape/Rodape';        
 import CardPost from '../components/CardPost/CardPost';
 

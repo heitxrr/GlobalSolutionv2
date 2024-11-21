@@ -1,6 +1,6 @@
 'use client'
 
-import AccordionFaq from '../../components/accordionfaq/AccordionFaq';
+import AccordionFaq from '../../components/AccordionFaq/AccordionFaq';
 import Faq from '@/types/Faq';
 import Rodape from '../../components/Rodape/Rodape';
 
