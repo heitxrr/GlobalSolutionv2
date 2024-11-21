@@ -9,7 +9,6 @@ export default function CardAutor({ cards }: { cards: AutorCardProps[] }) {
           key={index}
           className="flex justify-start items-center gap-4 bg bg-white rounded-lg p-4 shadow-md shadow-black"
         >
-          {/* Imagem */}
           <Image
             src={card.img}
             alt={card.nome}
@@ -20,6 +19,8 @@ export default function CardAutor({ cards }: { cards: AutorCardProps[] }) {
           {/* Informações */}
           <p className="text-black text-lg font-semibold">
             Nome: {card.nome}
+            <br />
+            Turma: {card.turma}
             <br />
             RM: {card.rm}
             <br />

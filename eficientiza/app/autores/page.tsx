@@ -1,6 +1,6 @@
 import AutorCard from "@/components/AutorCard/AutorCard";
-import imgAutor1 from "@/public/images/logo-eficientiza.png";
-import imgAutor2 from "@/public/images/logo-eficientiza.png";
+import imgAutor1 from "@/src/img/autores/alexsandro.png";
+import imgAutor2 from "@/src/img/autores/leonardo.png";
 import imgAutor3 from "@/src/img/autores/heitor.png";
 import { AutorCardProps } from "@/types/AutorCard";
 import Rodape from "@/components/Rodape/Rodape";
@@ -10,18 +10,21 @@ export default function Autores() {
     {
       img: imgAutor1,
       nome: "Alexsandro Macedo De Jesus",
+      turma: "1TDSR",
       rm: "557068",
       usuarioGithub: "AlexxsandroM",
     },
     {
       img: imgAutor2,
       nome: "Leonardo Faria Salazar",
+      turma: "1TDSR",
       rm: "557484",
       usuarioGithub: "L-salazar",
     },
     {
       img: imgAutor3,
       nome: "Heitor Romero da Rocha",
+      turma: "1TDSPW",
       rm: "558301",
       usuarioGithub: "heitxrr",
     },
