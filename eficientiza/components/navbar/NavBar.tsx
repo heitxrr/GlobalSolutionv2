@@ -4,18 +4,16 @@ import useUsuario from '@/hooks/UseUsuario';
 import ActiveLink from '../activelink/ActiveLink';
 import MenuButton from '../menubutton/MenuButton';
 import Link from 'next/link';
-//import logo from '@/app/assets/images/logo.png';
-import logo from '/app/assets/images/logo.png';
 
 function NavBar() {
     const { usuario } = useUsuario();
 
     return (
-        <header className='bg-eficientiza w-full flex h-20 px-8 items-center sticky top-0 text-black z-10'>
+        <header className='bg-eficientiza w-full flex h-20 px-10 items-center sticky top-0 text-black z-10'>
             <div className='flex-shrink-0'>
                 <Link href="/">
-                    <figure className='w-20 h-auto'>
-                        <img src='/images/logo-eficientiza.png' alt="Logo Eficientiza" />
+                    <figure className='w-24 h-auto'>
+                        <img src='/images/logo-eficientiza-navbar.png' alt="Logo Eficientiza" />
                     </figure>
                 </Link>
             </div>
