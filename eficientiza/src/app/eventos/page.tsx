@@ -1,7 +1,7 @@
 'use client';
 
-import EventCarousel from '@/components/EventCarousel/EventCarousel';
-import Rodape from '@/components/Rodape/Rodape';
+import EventCarousel from '@/src/components/EventCarousel/EventCarousel';
+import Rodape from '@/src/components/Rodape/Rodape';
 
 const Eventos = () => {
   const eventsWeek = [

@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import MenuContato from "@/components/Contato/Contato";
-import Rodape from "@/components/Rodape/Rodape";
+import MenuContato from "@/src/components/Contato/Contato";
+import Rodape from "@/src/components/Rodape/Rodape";
 
 const ContatoPage: React.FC = () => {
   const handleContatoSubmit = (email: string, motivo: string) => {

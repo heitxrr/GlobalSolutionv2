@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { RodapeProps } from "@/types/Rodape";
+import { RodapeProps } from "@/src/types/Rodape";
 import imgLogo from "@/public/images/logo-eficientiza.png";
 
 export default function Rodape (props : RodapeProps) {

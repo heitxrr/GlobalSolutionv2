@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import CardPostProps from '@/types/CardPost';
+import CardPostProps from '@/src/types/CardPost';
 
 const CardPost: React.FC<CardPostProps> = ({ title, description, link }) => {
     return (

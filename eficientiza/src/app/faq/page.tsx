@@ -1,7 +1,7 @@
 'use client'
 
 import AccordionFaq from '../../components/AccordionFaq/AccordionFaq';
-import Faq from '@/types/Faq';
+import Faq from '@/src/types/Faq';
 import Rodape from '../../components/Rodape/Rodape';
 
 function Faqs() {
