@@ -16,7 +16,6 @@ export default function CardAutor({ cards }: { cards: AutorCardProps[] }) {
             height={100}
             className="rounded-full"
           />
-          {/* Informações */}
           <p className="text-black text-lg font-semibold">
             Nome: {card.nome}
             <br />
