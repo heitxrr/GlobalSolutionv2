@@ -3,13 +3,13 @@
 import React from 'react';
 import Carousel from '../components/carousel/Carousel';  
 import Rodape from '../components/Rodape/Rodape';        
+import CardPost from '../components/CardPost/CardPost';
 
-//imagens usadas para teste, quando finalizar apagar a pasta teste do public junto com essas imports
+// Imagens de teste,quando terminar de importar apis, apagar
 import imgAutor1 from "@/public/images/teste/energia-hidreletrica.jpg";
 import imgAutor2 from "@/public/images/teste/energia-solar.jpg";
 import imgAutor3 from "@/public/images/teste/energia-eolica.jpg";
 import { StaticImageData } from 'next/image';
-import Link from 'next/link';
 
 const Home = () => {
   const images: { src: StaticImageData; alt: string }[] = [
@@ -22,7 +22,7 @@ const Home = () => {
     {
       title: "Como a Energia Hidrelétrica Transforma o Futuro Sustentável",
       description: "Entenda os impactos da energia hidrelétrica e sua importância no cenário energético atual.",
-      link: "/post/energia-hidreletrica", // link para o post
+      link: "/post/energia-hidreletrica",
       img: imgAutor1,
     },
     {
@@ -53,26 +53,15 @@ const Home = () => {
           <h1 className="text-2xl font-bold p-8">Postagens</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 p-8 w-full">
             {posts.map((post, index) => (
-              <Link key={index} href={post.link} className="block bg-white shadow-md shadow-black rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
-                <div
-                  className="h-48 w-full bg-cover bg-center"
-                  style={{ backgroundImage: `url(${post.img.src})` }}
-                />
-                <div className="p-4">
-                  <h2 className="text-lg font-semibold text-gray-800">{post.title}</h2>
-                  <p className="text-gray-600 text-sm mt-2">{post.description}</p>
-                </div>
-              </Link>
+              <CardPost
+                key={index}
+                title={post.title}
+                description={post.description}
+                link={post.link}
+                img={post.img}
+              />
             ))}
           </div>
-
-          <p className="p-8 px-28 text-center">
-            Eficientiza é um projeto dedicado a promover a sustentabilidade energética através de eventos e marketing.
-            Nosso objetivo é conscientizar e educar a comunidade sobre práticas eficientes de uso de energia, contribuindo para um futuro mais sustentável.
-          </p>
-          <p className="p-8 px-28 text-center">
-            Aqui você encontra informações sobre nossos eventos, dicas de economia de energia, contato com nossos especialistas e muito mais. Aproveite!
-          </p>
         </section>
       </main>
       <Rodape />
