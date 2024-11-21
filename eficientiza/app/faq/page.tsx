@@ -58,8 +58,8 @@ function Faqs() {
   ];
 
   return (
-    <main className="p-12 flex flex-col gap-6">
-      <section>
+    <main className="p-12 flex flex-col gap-6 min-h-screen">
+      <section className="flex-grow">
       {faqs.map((faq) => (
         <AccordionFaq key={faq.idQuestionario} faq={faq} />
       ))}
