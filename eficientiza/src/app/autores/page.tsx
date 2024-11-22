@@ -13,6 +13,7 @@ export default function Autores() {
       turma: "1TDSR",
       rm: "557068",
       usuarioGithub: "AlexxsandroM",
+      linkedin: "https://www.linkedin.com/in/alexsandro-macedo-jesus/",
     },
     {
       img: imgAutor2,
@@ -20,6 +21,7 @@ export default function Autores() {
       turma: "1TDSR",
       rm: "557484",
       usuarioGithub: "L-salazar",
+      linkedin: "https://www.linkedin.com/in/lfsalazaar/",
     },
     {
       img: imgAutor3,
@@ -27,6 +29,7 @@ export default function Autores() {
       turma: "1TDSPW",
       rm: "558301",
       usuarioGithub: "heitxrr",
+      linkedin: "https://www.linkedin.com/in/heitor-romero-da-rocha/",
     },
   ];
 

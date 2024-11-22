@@ -6,4 +6,5 @@ export type AutorCardProps = {
     turma: string;
     rm: string;
     usuarioGithub: string;
+    linkedin: string;
   }
