@@ -31,6 +31,17 @@ export default function CardAutor({ cards }: { cards: AutorCardProps[] }) {
             >
               {card.usuarioGithub}
             </a>
+            <br />
+            LinkedIn:{""}
+            <a
+              target="_blank"
+              href={`https://www.linkedin.com/in/${card.linkedin?.toLowerCase()}`}
+              className="text-black hover:underline"
+            >
+              <button className="text-black px-2 py-1 rounded hover:underline">
+              {card.linkedin}
+              </button>
+            </a>
           </p>
         </div>
       ))}
