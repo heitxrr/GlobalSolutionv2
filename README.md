@@ -75,7 +75,7 @@ URL Git: https://github.com/heitxrr/GlobalSolutionv2
 ### **Passos**
 1. Clone o repositório:
    ```bash
-   git clone [https://github.com//heitxrr/GlobalSolutionv2/eficientiza.git](https://github.com/heitxrr/GlobalSolutionv2.git)
+   git clone https://github.com/heitxrr/GlobalSolutionv2.git
    cd eficientiza
    ```
 2. Instale as dependências:
