@@ -114,4 +114,4 @@ Este projeto é distribuído sob a licença MIT. Veja o arquivo [LICENSE](./LICE
 Projeto desenvolvido para promover práticas sustentáveis no setor da construção civil. 💚
 ``` 
 
-Esse **README** oferece uma visão clara e bem estruturada sobre o projeto **Eficientiza** e suas funcionalidades. Se precisar de mais ajustes ou customizações, é só avisar! 🚀
+Esse **README** oferece uma visão clara e bem estruturada sobre o projeto **Eficientiza** e suas funcionalidades. 🚀
