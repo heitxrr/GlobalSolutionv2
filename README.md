@@ -61,6 +61,7 @@ URL Git: https://github.com/heitxrr/GlobalSolutionv2
 - **Estrutura Principal:**
   - `tb_eventos`: Para armazenar eventos e conferências sobre sustentabilidade.
   - `tb_postagens`: Para gerenciar postagens do blog.
+  - `tb_dicas`: Para gerenciar dicas do blog.
   - `tb_contato`: Para salvar mensagens de feedback e sugestões.
   - `tb_banner`: Para armazenar imagens exibidas na página inicial.
 
@@ -78,15 +79,23 @@ URL Git: https://github.com/heitxrr/GlobalSolutionv2
    git clone https://github.com/heitxrr/GlobalSolutionv2.git
    cd eficientiza
    ```
-2. Instale as dependências:
+2. Vá para pasta GlobalSolutionv2:
+   ```bash
+   cd GlobalSolutionv2
+   ```
+3. Vá para pasta eficientiza:
+   ```bash
+   cd eficientiza
+   ```
+4. Instale as dependências:
    ```bash
    npm install
    ```
-3. Inicie o servidor de desenvolvimento:
+5. Inicie o servidor de desenvolvimento:
    ```bash
    npm run dev
    ```
-4. Acesse a aplicação no navegador: [http://localhost:3000](http://localhost:3000).
+6. Acesse a aplicação no navegador: [http://localhost:3000](http://localhost:3000).
 
 
 ## Autores 👥
