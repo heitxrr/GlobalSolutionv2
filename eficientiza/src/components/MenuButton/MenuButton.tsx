@@ -37,7 +37,7 @@ function MenuButton() {
         >
           <ActiveLink linkTitle="Inicio" linkUrl="/" />
           <ActiveLink linkTitle="Eventos" linkUrl="/eventos" />
-          <ActiveLink linkTitle="Dicas" linkUrl="/faq" />
+          <ActiveLink linkTitle="Dicas" linkUrl="/dicas" />
           <ActiveLink linkTitle="Contato" linkUrl="/contato" />
           <ActiveLink linkTitle="Autores" linkUrl="/autores" />
         </ul>
