@@ -1,64 +1,107 @@
 'use client';
 
-import React from 'react';
-import Carousel from '@/components/Carousel/Carousel';  
-import Rodape from '@/components/Rodape/Rodape';        
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import Carousel from '@/components/Carousel/Carousel';
+import Rodape from '@/components/Rodape/Rodape';
 import CardPost from '@/components/CardPost/CardPost';
 
-// Imagens de teste,quando terminar de importar apis, apagar
-import imgAutor1 from "../../public/images/teste/energia-hidreletrica.jpg";
-import imgAutor2 from "../../public/images/teste/energia-solar.jpg";
-import imgAutor3 from "../../public/images/teste/energia-eolica.jpg";
-import { StaticImageData } from 'next/image';
+type Banner = {
+  idBanner: number;
+  idEvento: number | null;
+  urlBanner: string;
+};
+
+type Postagem = {
+  idPostagem: number;
+  tituloPostagem: string;
+  descricaoPostagem: string;
+};
 
 const Home = () => {
-  const images: { src: StaticImageData; alt: string }[] = [
-    { src: imgAutor1, alt: '' },
-    { src: imgAutor2, alt: '' },
-    { src: imgAutor3, alt: '' },
-  ];
+  const [banners, setBanners] = useState<Banner[]>([]);
+  const [postagens, setPostagens] = useState<Postagem[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const posts = [
-    {
-      title: "Como a Energia Hidrelétrica Transforma o Futuro Sustentável",
-      description: "Entenda os impactos da energia hidrelétrica e sua importância no cenário energético atual.",
-      link: "/post/energia-hidreletrica",
-    },
-    {
-      title: "A Revolução da Energia Solar no Brasil",
-      description: "A energia solar tem ganhado destaque, e nós vamos te mostrar o porquê.",
-      link: "/post/energia-solar",
-    },
-    {
-      title: "Desafios e Benefícios da Energia Eólica",
-      description: "Explore como a energia eólica está mudando o setor energético global.",
-      link: "/post/energia-eolica",
-    },
-    {
-      title: "Sustentabilidade e Inovações em Energias Renováveis",
-      description: "Fique por dentro das novas inovações no campo das energias renováveis.",
-      link: "/post/sustentabilidade-inovacoes",
-    },
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Fetch banners
+        const bannersResponse = await fetch('http://localhost:8080/banner');
+        if (!bannersResponse.ok) {
+          throw new Error('Erro ao buscar banners');
+        }
+        const bannersData: Banner[] = await bannersResponse.json();
+        setBanners(bannersData);
+
+        // Fetch postagens
+        const postagensResponse = await fetch('http://localhost:8080/postagem');
+        if (!postagensResponse.ok) {
+          throw new Error('Erro ao buscar postagens');
+        }
+        const postagensData: Postagem[] = await postagensResponse.json();
+        setPostagens(postagensData);
+
+        setLoading(false);
+      } catch (error: any) {
+        setError(error.message || 'Erro inesperado');
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div className="text-center p-4">Carregando dados...</div>;
+  }
+
+  if (error) {
+    return <div className="text-center p-4 text-red-500">Erro: {error}</div>;
+  }
 
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="flex flex-col min-h-screen bg-gray-50">
       <main className="flex-grow">
-        <section className="flex flex-col items-center">
-          <Carousel images={images} />
-          <h1 className="text-2xl font-bold p-8">Postagens</h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 p-8 w-full">
-            {posts.map((post, index) => (
-              <CardPost
-                key={index}
-                title={post.title}
-                description={post.description}
-                link={post.link}
-              />
+        {/* Carrossel de Banners */}
+        <section className="flex flex-col items-center p-6">
+          <div className="w-full max-w-5xl bg-white shadow-lg rounded-lg overflow-hidden">
+            <Carousel
+              images={banners.map((banner) => ({
+                src: banner.urlBanner,
+                alt: `Banner relacionado ao evento ${banner.idEvento || ''}`,
+              }))}
+            />
+          </div>
+        </section>
+
+        {/* Listagem de Postagens */}
+        <section className="p-8">
+          <h1 className="text-3xl font-bold text-center mb-8 text-gray-700">
+            Postagens Recentes
+          </h1>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {postagens.map((post) => (
+              <Link
+                key={post.idPostagem}
+                href={`/postagem/${post.idPostagem}`}
+                passHref
+              >
+                <div
+                  className="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow cursor-pointer"
+                >
+                  <CardPost
+                    title={post.tituloPostagem}
+                    description={post.descricaoPostagem}
+                  />
+                </div>
+              </Link>
             ))}
           </div>
         </section>
       </main>
+
       <Rodape />
     </div>
   );

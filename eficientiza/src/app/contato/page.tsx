@@ -5,17 +5,14 @@ import MenuContato from "@/components/Contato/Contato";
 import Rodape from "@/components/Rodape/Rodape";
 
 const ContatoPage: React.FC = () => {
-  const handleContatoSubmit = (email: string, motivo: string) => {
-    console.log("E-mail:", email);
-    console.log("Motivo:", motivo);
-    alert("Contato enviado com sucesso!");
-  };
-
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="flex flex-col min-h-screen bg-gray-50">
       <main className="flex-grow">
-        <section className="my-10 flex items-center justify-center">
-          <MenuContato onSubmit={handleContatoSubmit} />
+        <section className="flex items-center justify-center py-10">
+          {/* Contêiner centralizado e ajustado */}
+          <div className="w-full max-w-4xl px-4">
+            <MenuContato />
+          </div>
         </section>
       </main>
       <Rodape />

@@ -5,17 +5,20 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import { StaticImageData } from 'next/image';
+type CarouselImage = {
+  src: string; // Permite tanto imagens locais quanto URLs externas
+  alt: string;
+};
 
 interface CarouselProps {
-  images: { src: StaticImageData; alt: string }[];
+  images: CarouselImage[];
 }
 
 const Carousel = ({ images }: CarouselProps) => {
   return (
-    <div className="relative w-full">
+    <div className="relative w-full h-[30vh]"> {/* Altura ajustada para 30% da altura da tela */}
       <Swiper
-        className="w-full"
+        className="w-full h-full" // Garanta que o Swiper ocupe todo o espaço disponível
         modules={[Navigation, Pagination, A11y]}
         navigation={{
           nextEl: '.swiper-button-next',
@@ -25,21 +28,22 @@ const Carousel = ({ images }: CarouselProps) => {
         spaceBetween={10}
         slidesPerView={1}
       >
-        {images.length > 0
-          ? images.map((image, index) => (
-              <SwiperSlide className="h-auto object-contain" key={index}>
-                <img
-                  className="w-full h-56 object-cover"
-                  src={image.src.src}
-                  alt={image.alt}
-                />
-              </SwiperSlide>
+        {images.length > 0 ? (
+          images.map((image, index) => (
+            <SwiperSlide className="h-full" key={index}>
+              <img
+                className="w-full h-full object-cover" // Imagem ocupa todo o slide
+                src={typeof image.src === 'string' ? image.src : image.src}
+                alt={image.alt}
+              />
+            </SwiperSlide>
           ))
-          : <p>Não há imagens disponíveis</p>
-        }
+        ) : (
+          <p className="text-center">Não há imagens disponíveis</p>
+        )}
       </Swiper>
-      <div className="swiper-button-prev absolute left-0 top-1/2 transform -translate-y-1/2 "></div>
-      <div className="swiper-button-next absolute right-0 top-1/2 transform -translate-y-1/2 "></div>
+      <div className="swiper-button-prev absolute left-0 top-1/2 transform -translate-y-1/2"></div>
+      <div className="swiper-button-next absolute right-0 top-1/2 transform -translate-y-1/2"></div>
     </div>
   );
 };

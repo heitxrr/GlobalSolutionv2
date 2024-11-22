@@ -1,50 +1,73 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-type Question = {
-  question: string;
-  answer: string;
+type Dica = {
+  idDica: number;
+  tituloDica: string;
+  descricaoDica: string;
 };
 
 const Dicas: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [dicas, setDicas] = useState<Dica[]>([]);
+  const [openIndices, setOpenIndices] = useState<number[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // Função para buscar as dicas da API
+  useEffect(() => {
+    const fetchDicas = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/dicas');
+        if (!response.ok) {
+          throw new Error('Erro ao buscar as dicas da API.');
+        }
+        const data: Dica[] = await response.json();
+        setDicas(data);
+        setLoading(false);
+      } catch (err: any) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchDicas();
+  }, []);
 
   const toggleQuestion = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+    setOpenIndices((prevOpenIndices) =>
+      prevOpenIndices.includes(index)
+        ? prevOpenIndices.filter((i) => i !== index) // Fecha se estiver aberta
+        : [...prevOpenIndices, index] // Abre se estiver fechada
+    );
   };
 
-  const items: Question[] = [
-    { question: 'Como economizar energia elétrica?', answer: 'Desligue aparelhos em standby, use lâmpadas LED e aproveite a luz natural.' },
-    { question: 'Quais maneiras acessíveis de energias sustentáveis?', answer: 'Energia solar, eólica, e uso de biogás são acessíveis dependendo da região.' },
-    { question: 'Onde posso aprender a economizar energia elétrica?', answer: 'Pesquise em sites de sustentabilidade e consulte manuais de eficiência energética.' },
-    { question: 'Quais são os benefícios de economizar energia elétrica?', answer: 'Redução de custos, menor impacto ambiental e preservação de recursos naturais.' },
-    { question: 'Por que devo economizar energia elétrica?', answer: 'Para reduzir sua pegada de carbono e ajudar o meio ambiente.' },
-    { question: 'Qual é a energia que mais polui?', answer: 'A energia gerada por carvão mineral e petróleo é uma das mais poluentes.' },
-    { question: 'Instalar painéis solares é uma boa opção?', answer: 'Sim, é uma solução sustentável que reduz custos a longo prazo.' },
-  ];
+  if (loading) {
+    return <div className="text-center p-4">Carregando dicas...</div>;
+  }
+
+  if (error) {
+    return <div className="text-center p-4 text-red-500">Erro: {error}</div>;
+  }
 
   return (
     <div className="max-w-lg mx-auto p-4">
       <h1 className="text-center text-2xl font-bold mb-6">Dicas de Economia</h1>
-      {items.map((item, index) => (
-        <div
-          key={index}
-          className="border rounded-lg overflow-hidden mb-4"
-        >
-          {/* Título da pergunta */}
+      {dicas.map((dica, index) => (
+        <div key={dica.idDica} className="border rounded-lg overflow-hidden mb-4">
+          {/* Título da dica */}
           <div
             className="bg-eficientiza p-4 cursor-pointer font-semibold"
             onClick={() => toggleQuestion(index)}
           >
-            {item.question}
+            {dica.tituloDica}
           </div>
 
-          {/* Resposta com transição */}
+          {/* Descrição com transição */}
           <div
             className={`transition-all duration-500 ease-in-out ${
-              openIndex === index ? 'max-h-screen p-4' : 'max-h-0 p-0'
+              openIndices.includes(index) ? 'max-h-screen p-4' : 'max-h-0 p-0'
             } bg-[#91d487] overflow-hidden`}
           >
-            <p className="text-black">{item.answer}</p>
+            <p className="text-black">{dica.descricaoDica}</p>
           </div>
         </div>
       ))}
