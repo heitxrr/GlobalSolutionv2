@@ -19,7 +19,7 @@ const Eventos = () => {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-background">
       <main className="flex-grow">
         <h1 className="text-2xl font-bold mb-6 text-center">Confira eventos em sua região</h1>
         <EventCarousel title="Próxima semana" events={eventsWeek} />

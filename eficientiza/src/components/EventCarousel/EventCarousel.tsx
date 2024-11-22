@@ -12,8 +12,8 @@ interface EventCarouselProps {
 
 const EventCarousel: React.FC<EventCarouselProps> = ({ title, events }) => {
   return (
-    <div className="w-full mb-6">
-      <h2 className="text-xl font-semibold mb-4 text-center">{title}</h2>
+    <div className="w-full mb-6 bg-background">
+      <h2 className=" bg-background text-xl font-semibold mb-4 text-center">{title}</h2>
       <Swiper
         spaceBetween={30}
         slidesPerView={1}
