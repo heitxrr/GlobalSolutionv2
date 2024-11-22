@@ -1,5 +1,5 @@
 import React from "react";
-import { Evento } from "@/types/Evento";
+import { Evento, DetalhesEventoProps } from "@/types/Evento";
 
 // Função assíncrona para buscar os dados do evento
 const fetchEvento = async (id: string): Promise<Evento> => {
@@ -11,11 +11,6 @@ const fetchEvento = async (id: string): Promise<Evento> => {
   }
   return response.json();
 };
-
-// Interface para o tipo de propriedades do componente
-interface DetalhesEventoProps {
-  params: { id: string }; // Define que o ID é uma string
-}
 
 // Componente assíncrono para detalhes do evento
 const DetalhesEvento = async ({ params }: DetalhesEventoProps) => {
