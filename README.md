@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### README.md
 
-## Getting Started
+# Eficientiza 🌱
 
-First, run the development server:
+**Eficientiza** é um blog dedicado a promover práticas sustentáveis e a adoção de energia limpa, com foco no setor da construção civil. Nossa missão é educar e engajar empresas e profissionais, fornecendo informações acessíveis e práticas para reduzir desperdícios, otimizar recursos e diminuir custos energéticos. 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Problemas Solucionados 🛠️
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Desperdício de Materiais:** 
+   - Empresas frequentemente descartam materiais não utilizados de forma inadequada, causando impacto ambiental.
+2. **Custos Energéticos Elevados:** 
+   - Fornecemos orientações para integrar energia limpa nos processos de construção.
+3. **Falta de Informações Centralizadas:** 
+   - Reunimos dicas e estudos relevantes sobre sustentabilidade no setor da construção civil em um único local.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Funcionalidades 🚀
 
-To learn more about Next.js, take a look at the following resources:
+### **1. Dicas Sustentáveis**
+- Publicação semanal de conteúdos práticos para reduzir desperdícios e otimizar recursos na construção civil.
+- Exemplos incluem técnicas de reutilização de materiais e integração de energias renováveis.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### **2. Estudos de Caso**
+- Exemplos reais de empresas que implementaram soluções sustentáveis, mostrando os benefícios e os resultados obtidos.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### **3. Eventos e Notícias**
+- Atualizações frequentes sobre:
+  - Conferências.
+  - Treinamentos.
+  - Novidades no campo da sustentabilidade e energia limpa.
+- Seção dedicada a destacar eventos que podem interessar ao público-alvo.
 
-## Deploy on Vercel
+### **4. Seção de Críticas e Sugestões**
+- Um espaço exclusivo para os leitores enviarem feedback, críticas e sugestões.
+- Promove um relacionamento mais próximo com o público, utilizando o e-mail enviado pelos leitores para mantê-los informados com as novidades do blog.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Funcionalidades Técnicas 🌐
+
+### **Frontend**
+- **Framework:** [Next.js](https://nextjs.org/) para desenvolvimento de uma aplicação moderna e performática.
+- **Estilização:** [TailwindCSS](https://tailwindcss.com/) para layouts responsivos e modernos.
+- **Componentização:** Uso de componentes reutilizáveis para otimizar o desenvolvimento.
+
+### **Backend**
+- **API REST:** Desenvolvida em Java com endpoints para gerenciar:
+  - **Eventos:** Cadastrar, listar e exibir detalhes.
+  - **Postagens:** Criar, listar e exibir detalhes das postagens.
+  - **Contato:** Processar e salvar mensagens enviadas pelo público.
+  - **Banners:** Gerenciar e exibir banners no carrossel da página inicial.
+
+### **Banco de Dados**
+- **Estrutura Principal:**
+  - `tb_eventos`: Para armazenar eventos e conferências sobre sustentabilidade.
+  - `tb_postagens`: Para gerenciar postagens do blog.
+  - `tb_contato`: Para salvar mensagens de feedback e sugestões.
+  - `tb_banner`: Para armazenar imagens exibidas na página inicial.
+
+---
+
+## Como Executar o Projeto 🖥️
+
+### **Pré-requisitos**
+- Node.js instalado.
+- Backend da API em execução (endereço padrão: `http://localhost:8080`).
+
+### **Passos**
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-repositorio/eficientiza.git
+   cd eficienteiza
+   ```
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+3. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+4. Acesse a aplicação no navegador: [http://localhost:3000](http://localhost:3000).
+
+
+## Autores 👥
+
+- **Alexsandro Macedo De Jesus**  
+  - RM: 557068  
+  - [GitHub](https://github.com/AlexxsandroM) | [LinkedIn](https://www.linkedin.com/in/alexsandro-macedo-jesus/)
+
+- **Leonardo Faria Salazar**  
+  - RM: 557484  
+  - [GitHub](https://github.com/L-salazar) | [LinkedIn](https://www.linkedin.com/in/lfsalazaar/)
+
+- **Heitor Romero da Rocha**  
+  - RM: 558301  
+  - [GitHub](https://github.com/heitxrr) | [LinkedIn](https://www.linkedin.com/in/heitor-romero-da-rocha/)
+
+---
+
+## Licença 📜
+
+Este projeto é distribuído sob a licença MIT. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
+
+---
+
+Projeto desenvolvido para promover práticas sustentáveis no setor da construção civil. 💚
+``` 
+
+Esse **README** oferece uma visão clara e bem estruturada sobre o projeto **Eficientiza** e suas funcionalidades. Se precisar de mais ajustes ou customizações, é só avisar! 🚀
