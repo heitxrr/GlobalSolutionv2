@@ -1,45 +1,77 @@
-import React from 'react';
+"use client";
 
-type Postagem = {
-  idPostagem: number;
-  tituloPostagem: string;
-  descricaoPostagem: string;
-};
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
-// Função para buscar os detalhes da postagem
-const fetchPostagem = async (id: string): Promise<Postagem> => {
+const fetchPostagem = async (id: string) => {
   const response = await fetch(`http://localhost:8080/postagem/${id}`, {
-    cache: 'no-store', // Evita cache para sempre obter dados atualizados
+    cache: "no-store",
   });
 
   if (!response.ok) {
-    throw new Error('Erro ao buscar a postagem');
+    throw new Error("Erro ao buscar postagem");
   }
 
   return response.json();
 };
 
-const DetalhesPostagem = async ({ params }: { params: { id: string } }) => {
-  try {
-    const postagem = await fetchPostagem(params.id);
+const DetalhesPostagem: React.FC = () => {
+  const router = useRouter();
+  const [postagem, setPostagem] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
+  useEffect(() => {
+    const id = window.location.pathname.split("/").pop(); // Obter o ID da URL
+    if (!id) {
+      setError("ID da postagem não encontrado");
+      setLoading(false);
+      return;
+    }
+
+    fetchPostagem(id)
+      .then((data) => {
+        setPostagem(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message || "Erro ao carregar a postagem");
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
     return (
-      <div className="flex flex-col items-center min-h-screen bg-gray-50 p-8">
-        <div className="bg-white shadow-md rounded-lg p-6 max-w-4xl w-full">
-          <h1 className="text-3xl font-bold text-gray-800 mb-4">
-            {postagem.tituloPostagem}
-          </h1>
-          <p className="text-gray-700 leading-relaxed">{postagem.descricaoPostagem}</p>
-        </div>
-      </div>
-    );
-  } catch (error) {
-    return (
-      <div className="text-center p-4 text-red-500">
-        Erro ao carregar a postagem. Tente novamente mais tarde.
+      <div className="min-h-screen flex justify-center items-center bg-gray-100">
+        <p className="text-gray-500 text-lg">Carregando detalhes da postagem...</p>
       </div>
     );
   }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex justify-center items-center bg-gray-100">
+        <p className="text-red-500 text-lg font-bold">{error}</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center">
+      <header className="w-full bg-white p-4 flex items-center shadow">
+        <button
+          onClick={() => router.back()}
+          className="text-blue-500 font-bold text-xl"
+        >
+          ← Voltar
+        </button>
+      </header>
+      <main className="bg-white shadow-lg rounded-lg p-6 max-w-3xl w-full mt-4">
+        <h1 className="text-2xl font-bold mt-4">{postagem.tituloPostagem}</h1>
+        <p className="text-gray-600 mt-2">{postagem.descricaoPostagem}</p>
+      </main>
+    </div>
+  );
 };
 
 export default DetalhesPostagem;

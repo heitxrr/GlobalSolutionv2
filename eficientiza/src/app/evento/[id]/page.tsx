@@ -1,37 +1,74 @@
-import React from "react";
-import { GetServerSideProps } from "next";
-import { Evento } from "@/types/Evento";
+"use client";
 
-const fetchEvento = async (id: string): Promise<Evento> => {
-  const response = await fetch(`http://localhost:8080/evento/${id}`);
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+
+const fetchEvento = async (id: string) => {
+  const response = await fetch(`http://localhost:8080/evento/${id}`, {
+    cache: "no-store", // Garante que o dado seja atualizado em cada requisição
+  });
+
   if (!response.ok) {
     throw new Error("Erro ao buscar evento");
   }
+
   return response.json();
 };
 
-interface PageProps {
-  evento: Evento;
-}
+const DetalhesEvento: React.FC = () => {
+  const router = useRouter();
+  const [evento, setEvento] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { id } = context.params!;
-  const evento = await fetchEvento(id as string);
-  return {
-    props: {
-      evento,
-    },
-  };
-};
+  useEffect(() => {
+    const id = window.location.pathname.split("/").pop(); // Extrai o ID diretamente da URL
+    if (!id) {
+      setError("ID do evento não encontrado");
+      setLoading(false);
+      return;
+    }
 
-const DetalhesEvento = ({ evento }: PageProps) => {
+    fetchEvento(id)
+      .then((data) => {
+        setEvento(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message || "Erro ao carregar o evento");
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex justify-center items-center bg-gray-100">
+        <p className="text-gray-500 text-lg">Carregando detalhes do evento...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex justify-center items-center bg-gray-100">
+        <p className="text-red-500 text-lg font-bold">{error}</p>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center">
+      {/* Header com botão de voltar */}
       <header className="w-full bg-white p-4 flex items-center shadow">
-        <a href="/eventos" className="text-blue-500 font-bold text-xl">
-          ←
-        </a>
+        <button
+          onClick={() => router.back()}
+          className="text-blue-500 font-bold text-xl"
+        >
+          ← Voltar
+        </button>
       </header>
+
+      {/* Detalhes do evento */}
       <main className="bg-white shadow-lg rounded-lg p-6 max-w-3xl w-full mt-4">
         <img
           src={evento.urlImagemEvento}
