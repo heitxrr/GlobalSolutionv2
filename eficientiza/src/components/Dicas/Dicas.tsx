@@ -24,7 +24,7 @@ const Dicas: React.FC = () => {
         setDicas(data);
         setLoading(false);
       } catch (err: any) {
-        setError(err.message);
+        setError(err.message || 'Erro inesperado ao carregar as dicas.');
         setLoading(false);
       }
     };
@@ -45,17 +45,31 @@ const Dicas: React.FC = () => {
   }
 
   if (error) {
-    return <div className="text-center p-4 text-red-500">Erro: {error}</div>;
+    return (
+      <div className="text-center p-4 text-red-500">
+        <p>Erro ao carregar as dicas.</p>
+        <p>{error}</p>
+        <button
+          onClick={() => window.location.reload()}
+          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition"
+        >
+          Tentar Novamente
+        </button>
+      </div>
+    );
   }
 
   return (
     <div className="max-w-lg mx-auto p-4">
       <h1 className="text-center text-2xl font-bold mb-6">Dicas de Economia</h1>
       {dicas.map((dica, index) => (
-        <div key={dica.idDica} className="border rounded-lg overflow-hidden mb-4">
+        <div
+          key={dica.idDica}
+          className="border rounded-lg overflow-hidden mb-4 shadow-lg transition-transform hover:scale-105"
+        >
           {/* Título da dica */}
           <div
-            className="bg-eficientiza p-4 cursor-pointer font-semibold"
+            className="bg-[#5BB85C] p-4 cursor-pointer font-semibold text-white"
             onClick={() => toggleQuestion(index)}
           >
             {dica.tituloDica}
@@ -65,9 +79,9 @@ const Dicas: React.FC = () => {
           <div
             className={`transition-all duration-500 ease-in-out ${
               openIndices.includes(index) ? 'max-h-screen p-4' : 'max-h-0 p-0'
-            } bg-[#91d487] overflow-hidden`}
+            } bg-[#D8F3DC] overflow-hidden`}
           >
-            <p className="text-black">{dica.descricaoDica}</p>
+            <p className="text-gray-800">{dica.descricaoDica}</p>
           </div>
         </div>
       ))}

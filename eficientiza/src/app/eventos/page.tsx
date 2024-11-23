@@ -23,7 +23,7 @@ const Eventos: React.FC = () => {
       try {
         const response = await fetch('http://localhost:8080/evento');
         if (!response.ok) {
-          throw new Error('Erro ao buscar eventos');
+          throw new Error('Erro ao buscar eventos. Verifique o servidor.');
         }
         const data: Evento[] = await response.json();
 
@@ -48,7 +48,13 @@ const Eventos: React.FC = () => {
         setEventsMonth(monthEvents);
         setLoading(false);
       } catch (error: any) {
-        setError(error.message || 'Erro inesperado');
+        let errorMessage = 'Erro inesperado. Por favor, tente novamente mais tarde.';
+        if (error instanceof TypeError && error.message === 'Failed to fetch') {
+          errorMessage = 'Não foi possível conectar ao servidor. Verifique sua conexão com a internet ou tente novamente mais tarde.';
+        } else if (error.message) {
+          errorMessage = error.message;
+        }
+        setError(errorMessage);
         setLoading(false);
       }
     };
@@ -61,7 +67,17 @@ const Eventos: React.FC = () => {
   }
 
   if (error) {
-    return <div className="text-center p-4 text-red-500">Erro: {error}</div>;
+    return (
+      <div className="text-center p-4 text-red-500">
+        <p>Erro: {error}</p>
+        <button
+          onClick={() => window.location.reload()}
+          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition"
+        >
+          Tentar Novamente
+        </button>
+      </div>
+    );
   }
 
   return (

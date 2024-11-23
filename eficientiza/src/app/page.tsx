@@ -45,7 +45,11 @@ const Home = () => {
 
         setLoading(false);
       } catch (error: any) {
-        setError(error.message || 'Erro inesperado');
+        if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
+          setError('Não foi possível conectar ao servidor. Verifique sua conexão ou tente novamente mais tarde.');
+        } else {
+          setError(error.message || 'Erro inesperado ao carregar os dados.');
+        }
         setLoading(false);
       }
     };
@@ -58,7 +62,17 @@ const Home = () => {
   }
 
   if (error) {
-    return <div className="text-center p-4 text-red-500">Erro: {error}</div>;
+    return (
+      <div className="min-h-screen flex flex-col justify-center items-center">
+        <p className="text-red-500 text-lg font-bold mb-4">{error}</p>
+        <button
+          onClick={() => window.location.reload()}
+          className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition"
+        >
+          Tentar novamente
+        </button>
+      </div>
+    );
   }
 
   return (
