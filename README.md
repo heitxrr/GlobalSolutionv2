@@ -4,6 +4,8 @@ Video com demonstração das API's: https://www.youtube.com/watch?v=7NsfaFXqEDE
 
 URL Git: https://github.com/heitxrr/GlobalSolutionv2
 
+Vercel: https://global-solutionv2.vercel.app/
+
 # Eficientiza 🌱
 
 **Eficientiza** é um blog dedicado a promover práticas sustentáveis e a adoção de energia limpa, com foco no setor da construção civil. Nossa missão é educar e engajar empresas e profissionais, fornecendo informações acessíveis e práticas para reduzir desperdícios, otimizar recursos e diminuir custos energéticos. 
