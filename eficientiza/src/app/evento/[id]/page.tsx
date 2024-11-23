@@ -1,5 +1,5 @@
 "use client";
-
+import { Evento } from "@/types/Evento";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -17,7 +17,7 @@ const fetchEvento = async (id: string) => {
 
 const DetalhesEvento: React.FC = () => {
   const router = useRouter();
-  const [evento, setEvento] = useState<any>(null);
+  const [evento, setEvento] = useState<Evento>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
